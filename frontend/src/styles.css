@@ -1,0 +1,519 @@
+/* Inventario Ingrata — estilos globales (móvil primero, usable desde 360 px) */
+:root {
+  --color-fondo: #f4f5f7;
+  --color-tarjeta: #ffffff;
+  --color-texto: #1f2933;
+  --color-suave: #6b7280;
+  --color-borde: #e4e7eb;
+  --color-primario: #7a1f2b;
+  --color-primario-h: #5f1620;
+  --color-ok: #157f3d;
+  --color-alerta: #b42318;
+  --color-advertencia: #b54708;
+  --radio: 10px;
+  --sombra: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+}
+
+/* ---------- Cabecera y navegación ---------- */
+.cabecera {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.cabecera-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.marca {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.marca-logo {
+  background: #fff;
+  color: var(--color-primario);
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+}
+
+.marca small {
+  display: block;
+  opacity: 0.85;
+}
+
+.sesion {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.sesion-usuario {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+  overflow-x: auto;
+  padding: 0 0.5rem 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.nav a:hover,
+.nav a.activo {
+  background: rgba(255, 255, 255, 0.18);
+  opacity: 1;
+}
+
+/* ---------- Contenido ---------- */
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pie {
+  text-align: center;
+  color: var(--color-suave);
+  font-size: 0.8rem;
+  padding: 1.5rem 1rem;
+}
+
+.pagina-cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card {
+  background: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 1rem;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .filtros {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    align-items: end;
+  }
+}
+
+/* ---------- Formularios ---------- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.92rem;
+}
+
+.campo span {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 0.55rem 0.65rem;
+  font-size: 1rem;
+  background: #fff;
+  width: 100%;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 1px;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .grid-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid-form .acciones,
+  .grid-form .alerta {
+    grid-column: 1 / -1;
+  }
+}
+
+.fila-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.campo.crece {
+  flex: 1 1 240px;
+}
+
+.error {
+  color: var(--color-alerta);
+}
+
+.ayuda {
+  color: var(--color-suave);
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.acciones-fila {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  background: #e4e7eb;
+  color: var(--color-texto);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primario {
+  background: var(--color-primario);
+  color: #fff;
+}
+
+.btn-primario:hover:not(:disabled) {
+  background: var(--color-primario-h);
+}
+
+.btn-secundario {
+  background: #fff;
+  border-color: var(--color-borde);
+}
+
+.btn-peligro {
+  background: #fff;
+  border-color: var(--color-alerta);
+  color: var(--color-alerta);
+}
+
+.btn-sm {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.82rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Tablas ---------- */
+.tabla-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 560px;
+}
+
+.tabla th,
+.tabla td {
+  text-align: left;
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--color-borde);
+  vertical-align: top;
+}
+
+.tabla th {
+  color: var(--color-suave);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.tabla .derecha {
+  text-align: right;
+}
+
+.fila-inactiva {
+  color: var(--color-suave);
+}
+
+.anulado {
+  opacity: 0.65;
+  text-decoration: line-through;
+}
+
+.anulado .badge {
+  text-decoration: none;
+}
+
+.detalle {
+  font-size: 0.82rem;
+  color: var(--color-suave);
+  max-width: 240px;
+}
+
+.mono {
+  font-family: 'Cascadia Mono', 'Consolas', monospace;
+  font-size: 0.85em;
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: #eef2f6;
+  color: var(--color-texto);
+}
+
+.badge-ok {
+  background: #e3f5e9;
+  color: var(--color-ok);
+}
+
+.badge-off {
+  background: #f2f4f7;
+  color: var(--color-suave);
+}
+
+.badge-admin {
+  background: #fff;
+  color: var(--color-primario);
+}
+
+.badge-tipo-entrada {
+  background: #e3f5e9;
+  color: var(--color-ok);
+}
+
+.badge-tipo-entrega {
+  background: #fef0e0;
+  color: var(--color-advertencia);
+}
+
+.badge-tipo-merma {
+  background: #fdeaea;
+  color: var(--color-alerta);
+}
+
+.badge-tipo-reversion {
+  background: #eef2f6;
+  color: var(--color-suave);
+}
+
+/* ---------- Alertas y estados ---------- */
+.alerta {
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.92rem;
+}
+
+.alerta-error {
+  background: #fdeaea;
+  color: var(--color-alerta);
+  border: 1px solid #f5c2c0;
+}
+
+.estado-vacio {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--color-texto);
+}
+
+.texto-suave {
+  color: var(--color-suave);
+}
+
+/* ---------- Login ---------- */
+.login-contenedor {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: linear-gradient(160deg, var(--color-primario), #3b0d15);
+}
+
+.login-tarjeta {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.login-tarjeta h1 {
+  margin: 0;
+}
+
+/* ---------- Movimiento nuevo ---------- */
+.tipo-selector {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 0.75rem;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tipo-selector legend {
+  font-weight: 600;
+  padding: 0 0.35rem;
+}
+
+.opcion {
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  background: #fff;
+}
+
+.opcion.seleccionada {
+  border-color: var(--color-primario);
+  background: #fbe9ec;
+  color: var(--color-primario);
+  font-weight: 600;
+}
+
+.confirmacion {
+  border-color: var(--color-ok);
+  text-align: center;
+}
+
+.folio {
+  font-family: 'Cascadia Mono', 'Consolas', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.4rem 0;
+  color: var(--color-primario);
+}
+
+/* ---------- Dashboard ---------- */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 4px solid var(--color-borde);
+}
+
+.tarjeta-valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.tarjeta-etiqueta {
+  color: var(--color-suave);
+  font-size: 0.85rem;
+}
+
+.tarjeta-entrada {
+  border-top-color: var(--color-ok);
+}
+
+.tarjeta-entrega {
+  border-top-color: var(--color-advertencia);
+}
+
+.tarjeta-merma {
+  border-top-color: var(--color-alerta);
+}
+
+.paginacion {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  color: var(--color-suave);
+  font-size: 0.9rem;
+}
