@@ -86,3 +86,4 @@ Cobertura: PT-01, PT-02, PT-03, PT-06, PT-07, PT-10 a PT-18, PT-21, PT-28, PT-38
 ## Códigos de error
 
 400 validación · 401 sin token · 403 sin permiso · 404 inexistente · 409 conflicto (`SALDO_INSUFICIENTE`, `YA_ANULADO`, `MODIFICACION_PROHIBIDA`, `CONFLICTO`) · 500 error interno. Cuerpo: `{ "codigo": "...", "mensaje": "..." }`.
+# proyecto-ingrata
